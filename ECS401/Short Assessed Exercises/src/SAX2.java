@@ -1,7 +1,11 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * @author Howard Wong
+ * Date: 10-10-2021
+ */
 public class SAX2 {
-    private static final Scanner reader = new Scanner(System.in);
 
     public static void main(String[] args) {
         float length = getUserInputFloat("Enter length of the room (cm): ");
@@ -14,8 +18,23 @@ public class SAX2 {
         System.out.println("You can have at most " + (int)(roomVolume / balloonVolume) + " balloons");
     }
 
+    /**
+     * Asks a query message and gets the user input in float
+     * @param query The query message
+     * @return User input as a float
+     */
     public static float getUserInputFloat(String query) {
-        System.out.print(query);
-        return reader.nextFloat();
+        boolean test = true;
+        float input = 0;
+        while (test) { // Loops until the user inputs an actual float
+            try {
+                System.out.print(query);
+                input = new Scanner(System.in).nextFloat();
+                test = false;
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input! You should input a real number!");
+            }
+        }
+        return input;
     }
 }
