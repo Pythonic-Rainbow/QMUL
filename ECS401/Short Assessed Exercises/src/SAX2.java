@@ -4,15 +4,17 @@ import java.util.Scanner;
 /**
  * @author Howard Wong
  * Date: 10-10-2021
+ * @version 1.0
+ * Finds the amount of balloons needed to fill a cuboid room.
  */
 public class SAX2 {
 
     public static void main(String[] args) {
-        float length = getUserInputFloat("Enter length of the room (cm): ");
-        float width = getUserInputFloat("Enter width of the room (cm): ");
-        float height = getUserInputFloat("Enter height of the room (cm): ");
-        float balloonVolume = getUserInputFloat("Enter balloon volume (m³): ");
-        float roomVolume = length * width * height / 1000000;
+        final float length = getUserInputFloat("Enter length of the room (cm): ");
+        final float width = getUserInputFloat("Enter width of the room (cm): ");
+        final float height = getUserInputFloat("Enter height of the room (cm): ");
+        final float balloonVolume = getUserInputFloat("Enter balloon volume (m³): ");
+        final float roomVolume = length * width * height / 1000000;
 
         System.out.println("Your room volume is " + roomVolume + " m³.");
         System.out.println("You can have at most " + (int)(roomVolume / balloonVolume) + " balloons");
