@@ -8,10 +8,9 @@ import java.util.Scanner;
  * Finds the parking fee for the users.
  */
 public class SAX3 {
-    private static final Scanner reader = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("Parking for you is " + getParkingFee());
+        System.out.println("Parking for you is " + getParkingFee(new Scanner(System.in)));
     }
 
     /**
@@ -19,7 +18,7 @@ public class SAX3 {
      * @param prompt The prompt message
      * @return true if user inputs yes; false if user inputs no
      */
-    public static boolean ask(String prompt) {
+    public static boolean ask(final Scanner reader, String prompt) {
         while (true) {
             System.out.print(prompt + " ");
             String input = reader.nextLine().toLowerCase();
@@ -33,7 +32,7 @@ public class SAX3 {
      * Asks the user for the hours to park and ensures that it is within 1-8
      * @return hours to park
      */
-    public static byte askParkingHours() {
+    public static byte askParkingHours(final Scanner reader) {
         while (true) {
             System.out.print("How many hours do you wish to park (1-8)? ");
             try {
@@ -51,24 +50,24 @@ public class SAX3 {
      * Computes the parking fee to be printed based on whether the users are disabled, are local or are old persons.
      * @return the parking fee as a String.
      */
-    public static String getParkingFee() {
-        if (ask("Are you disabled?")) return "free";
-        byte parkingFee = askParkingHours();
+    public static String getParkingFee(final Scanner reader) {
+        if (ask(reader, "Are you disabled?")) return "free";
+        byte parkingFee = askParkingHours(reader);
         float cost;
         if (parkingFee == 1) cost = 3;
         else if (2 <= parkingFee & parkingFee <= 4) cost = 4;
         else if (5 <= parkingFee & parkingFee <= 6) cost = 4.5f;
         else cost = 5.5f;
-        return cost - getDiscount() + " pounds.";
+        return cost - getDiscount(reader) + " pounds.";
     }
 
     /**
      * Asks users whether they are local/old person
      * @return the discount that the user can get.
      */
-    public static byte getDiscount() {
-        byte discount = ask("Do you have an ”I live locally badge”?") ? (byte)1 : 0;
-        if (ask("Are you an OAP?")) discount += 2;
+    public static byte getDiscount(final Scanner reader) {
+        byte discount = ask(reader, "Do you have an ”I live locally badge”?") ? (byte)1 : 0;
+        if (ask(reader, "Are you an OAP?")) discount += 2;
         return discount;
     }
 
