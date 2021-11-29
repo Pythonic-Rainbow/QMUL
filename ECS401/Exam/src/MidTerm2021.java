@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class LectureTimeAndPercentage {
+public class MidTerm2021 {
 
     public static void main(String[] args) {
         short[] studentAmounts = {0, 0, 0};
