@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 /**
  * @author Howard Wong
- * Date: 10-11-2021
- * @version 1.0
+ * Date: 03-12-2021
+ * @version 2.0
  * Answering tourist questions about attractions
  */
 public class SAX4 {
@@ -11,20 +11,10 @@ public class SAX4 {
     /**
      * Defines an Attraction record as well as 3 given attractions
      */
-    enum Attraction {
-        EDEN("The Eden Project", true, (byte) 9),
-        TATE("Tate Modern", false, (byte) 10),
-        ZOO("London Zoo", true, (byte) 10);
-
+    static class Attraction {
         boolean openOnBankHolidays;
         byte openHour;
         String attractionName;
-
-        Attraction(String name, boolean openOnBankHolidays, byte openHour) {
-            this.attractionName = name;
-            this.openOnBankHolidays = openOnBankHolidays;
-            this.openHour = openHour;
-        }
     }
 
     public static void main(String[] args) {
@@ -59,9 +49,21 @@ public class SAX4 {
      * @return A String that represents the attraction details, or an error message.
      */
     public static String getAttractionInfo(String name) {
-        for (Attraction a: Attraction.values()) if (a.attractionName.equals(name))
+        Attraction EDEN = createAttraction("The Eden Project", true, (byte) 9);
+        Attraction TATE = createAttraction("Tate Modern", false, (byte) 10);
+        Attraction ZOO = createAttraction("London Zoo", true, (byte) 10);
+
+        for (Attraction a: new Attraction[]{EDEN, TATE, ZOO}) if (a.attractionName.equals(name))
             return String.format("%s %sopen on bank holidays.%nIt opens at %dam.",
                     a.attractionName, a.openOnBankHolidays ? "" : "does not ", a.openHour);
         return "I have no information about that attraction.";
+    }
+
+    public static Attraction createAttraction(String attractionName, boolean openOnHolidays, byte openHour) {
+        Attraction a = new Attraction();
+        a.attractionName = attractionName;
+        a.openHour = openHour;
+        a.openOnBankHolidays = openOnHolidays;
+        return a;
     }
 }
