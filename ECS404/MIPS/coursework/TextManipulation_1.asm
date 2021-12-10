@@ -25,11 +25,12 @@ syscall
 # Looping over characters of the string:
 la      $t0, buffer_for_input_string
 la      $t1, buffer_for_processed_string
+
 Loop:
 lb      $t2, 0($t0)
 slti	$t3, $t2, 123			# $t3 = ($s0 < 123) ? 1 : 0
 beq     $t3, $zero, Done_Loop
-slti	$t3, $s2, 97			# t3 = (t2 < 97) ? 1 : 0
+slti	$t3, $t2, 97			# t3 = (t2 < 97) ? 1 : 0
 bne		$t3, $zero, Done_Loop	# if $t3 != $zero then Done_Loop
 addi	$t2, $t2, -32			#$t2 -= 32
 
