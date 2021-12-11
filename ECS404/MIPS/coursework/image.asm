@@ -60,6 +60,7 @@ addi    $t2, $t2, 1 # counter of the colour bytes for each pixel
 bne     $t2, $s3, Loop_over_colours_in_each_pixel
 addi    $t3, $t3, 1 # counter over the pixels in a row (column)
 bne     $t3, $s4, Loop_over_pixels_in_each_row
+addi    $t0, $t0, 50  # Increment address of the current byte by 50 so it becomes first byte of next row
 addi    $t4, $t4, 1
 bne     $t4, $s5, Loop_over_rows
 
