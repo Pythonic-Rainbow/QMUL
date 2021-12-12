@@ -1,6 +1,6 @@
 .data
-input_file_name: .asciiz "pog.bmp"
-output_file_name: .asciiz "out.bmp"
+input_file_name: .asciiz "in.ppm"
+output_file_name: .asciiz "out.ppm"
 
 .text
 main:
@@ -42,36 +42,35 @@ syscall            # close file
 
 addiu    $t0, $s2, 61
 
-li  $s3, 3 # colours
-li  $s4, 78 # columns
-li  $s5, 128 # rows
+li  $s5, 128 # amount of rows
+addi	$t1, $t0, 234
+add $t3, $zero, $t0
 
-li      $t4, 0 # row counter
-Loop_over_rows:
-li      $t3, 0 # column counter
-Loop_over_pixels_in_each_row: # i.e., columns
-li      $t2, 0 # colour counter (each colour represents Red-Green-Blue)
-Loop_over_colours_in_each_pixel:
-lb      $t1, 0($t0) # loading the value of the byte, representing the intensity of the corresponding RGB colour of that pixel
-# Do something with the value of the byte
-sb      $t1, 50($t0) #
-addi    $t0, $t0, 1 # address of the next byte
-addi    $t2, $t2, 1 # counter of the colour bytes for each pixel
-bne     $t2, $s3, Loop_over_colours_in_each_pixel
-addi    $t3, $t3, 1 # counter over the pixels in a row (column)
-bne     $t3, $s4, Loop_over_pixels_in_each_row
-addi    $t0, $t0, 50  # Increment address of the current byte by 50 so it becomes first byte of next row
-addi    $t4, $t4, 1
-bne     $t4, $s5, Loop_over_rows
+Loop_over_rows:  # Shift first 78 bytes in decending order. Then we just fill out the first 50 bytes with 0
+subi	$t1, $t1, 1			# $t1 -= 1
+lb      $t2, 0($t1)
+sb      $t2, 150($t1)
+bne		$t3, $t1, Loop_over_rows	# if $t0 != $t1 then Loop_over_rows
+
+addi    $t1, $t1, 150
+Fill:
+subi	$t1, $t1, 1			# $t1 -= 1
+sb      $zero, 0($t1)
+bne		$t3, $t1, Fill	# if $t0 != $t1 then Fill
+
+addi	$t3, $t3, 384			# t3 = address of next row
+addi    $t1, $t3, 234
+subi    $s5, $s5, 1
+bne     $zero, $s5, Loop_over_rows
 
 # <<<<<<<< MAKE YOUR CHANGES ABOVE THIS LINE
 
 # Open a file for saving the processed image to: 
-li $v0, 13 # system call for open file 
-la $a0, output_file_name # input file name
-li $a1, 0x41 # flag for writing 
-li $a2, 0x1B4 # mode is ignored 
-syscall # open a file 
+li $v0, 13 # system call for open file
+la $a0, output_file_name # out file name
+li $a1, 1 # flag for writing
+li $a2, 0 # mode is ignored
+syscall # open a file
 addu $s0, $zero, $v0 # save the file descriptor 
 
 # Saving the processed image to it: 
