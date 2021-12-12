@@ -3,17 +3,39 @@ import java.util.Scanner;
 
 /**
  * @author Howard Wong
- * Date: 10-11-2021
- * @version 1.0
+ * Date: 12-12-2021
+ * @version 4.1
  * A board game with traps and secret passages
  */
 public class SecretTrapsAndPassages {
-    record Question(String question, String[] choices, char answer) {}
+    static class Question {
+        private String msg;
+        private String[] choices;
+        private char answer;
+    }
+
+    // A boilerplate to create a new Question instance.
+    public static Question newQuestion(String q, String[] choices, char ans) {
+        Question question = new Question();
+        question.msg = q;
+        question.choices = choices;
+        question.answer = ans;
+        return question;
+    }
+
+    // Getter for msg of Question
+    public static String getQuestionMsg(Question q) {return q.msg;}
+
+    // Getter for choices of Question
+    public static String[] getQuestionChocies(Question q) {return q.choices;}
+
+    // Getter for answer of Question
+    public static char getQuestionAnswer(Question q) {return q.answer;}
 
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
         final Random random = new Random();
-        final Question question = new Question("What is 1+1?", new String[]{"1", "2", "3", "4"}, 'b');
+        final Question question = newQuestion("What is 1+1?", new String[]{"1", "2", "3", "4"}, 'b');
         final int[] positions = new int[]{0, 0};
 
         for (int i = 0; i < positions.length; i++) {
@@ -33,12 +55,12 @@ public class SecretTrapsAndPassages {
 
     // Asks question and returns whether the answer is correct
     public static boolean getMCInput(Question q, Scanner s) {
-        System.out.println(q.question() + "\n");
-        for (int i = 0; i <= 3; i++) System.out.printf("%c. %s%n", (char)(i + 97), q.choices()[i]);
+        System.out.println(getQuestionMsg(q) + "\n");
+        for (int i = 0; i <= 3; i++) System.out.printf("%c. %s%n", (char)(i + 97), getQuestionChocies(q)[i]);
         char input = s.nextLine().charAt(0);
         System.out.println("You answered " + input);
-        System.out.println("The correct answer is " + q.answer());
-        boolean correct = input == q.answer();
+        System.out.println("The correct answer is " + getQuestionAnswer(q));
+        boolean correct = input == getQuestionAnswer(q);
         System.out.printf("Your answer is %s\n", correct ? "correct" : "wrong");
         return correct;
     }
