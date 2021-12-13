@@ -4,14 +4,14 @@ import java.util.Scanner;
 /**
  * @author Howard Wong
  * Date: 12-12-2021
- * @version 4.1
+ * @version 5.0
  * A board game with traps and secret passages
  */
 public class SecretTrapsAndPassages {
     static class Question {
-        private String msg;
-        private String[] choices;
-        private char answer;
+        String msg;
+        String[] choices;
+        char answer;
     }
 
     // A boilerplate to create a new Question instance.
@@ -27,16 +27,30 @@ public class SecretTrapsAndPassages {
     public static String getQuestionMsg(Question q) {return q.msg;}
 
     // Getter for choices of Question
-    public static String[] getQuestionChocies(Question q) {return q.choices;}
+    public static String[] getQuestionChoices(Question q) {return q.choices;}
 
     // Getter for answer of Question
     public static char getQuestionAnswer(Question q) {return q.answer;}
 
+    // Sets up the String array for choices
+    public static String[] newMC(String a, String b, String c, String d) {
+        String[] mc = new String[4];
+        mc[0] = a;
+        mc[1] = b;
+        mc[2] = c;
+        mc[3] = d;
+        return mc;
+    }
+
     public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
         final Random random = new Random();
-        final Question question = newQuestion("What is 1+1?", new String[]{"1", "2", "3", "4"}, 'b');
-        final int[] positions = new int[]{0, 0};
+        final Question question = newQuestion("What is 1+1?", newMC("1", "2", "3", "4"), 'b');
+        final int[] positions = new int[2];
+        // Special board positions with traps, secret paths etc.
+        final int[] specialPos = new int[]{3, 5};
+
+        final String[] posInst = new String[]{"?4", "!4"};
 
         for (int i = 0; i < positions.length; i++) {
             System.out.println("Current player: " + (i+1));
@@ -46,7 +60,7 @@ public class SecretTrapsAndPassages {
 
             // Actual gameplay
             boolean isCorrect = getMCInput(question, scanner);
-            positions[i] = getNewPosition(positions[i], isCorrect);
+            positions[i] = getNewPosition(positions[i], isCorrect, specialPos, posInst);
             System.out.printf("Your new position is: %s. Press ENTER to confirm.%n", positions[i]);
             scanner.nextLine();  // Lets the player check the results before next player
             System.out.println("====================");
@@ -56,12 +70,12 @@ public class SecretTrapsAndPassages {
     // Asks question and returns whether the answer is correct
     public static boolean getMCInput(Question q, Scanner s) {
         System.out.println(getQuestionMsg(q) + "\n");
-        for (int i = 0; i <= 3; i++) System.out.printf("%c. %s%n", (char)(i + 97), getQuestionChocies(q)[i]);
+        for (int i = 0; i <= 3; i++) System.out.printf("%c. %s%n", (char)(i + 97), getQuestionChoices(q)[i]);
         char input = s.nextLine().charAt(0);
         System.out.println("You answered " + input);
         System.out.println("The correct answer is " + getQuestionAnswer(q));
         boolean correct = input == getQuestionAnswer(q);
-        System.out.printf("Your answer is %s\n", correct ? "correct" : "wrong");
+        System.out.println("Your answer is " + (correct ? "correct" : "wrong"));
         return correct;
     }
 
@@ -69,13 +83,11 @@ public class SecretTrapsAndPassages {
      * Processes the position of the player
      * @param pos Current position to be processed
      * @param correct Whether the player has correctly answered the previous question
+     * @param specialPos Special positions that need further processing
+     * @param posInst Instructions for each special position
      * @return New position
      */
-    public static int getNewPosition(int pos, boolean correct) {
-        // Special board positions with traps, secret paths etc.
-        final int[] specialPos = new int[]{3, 5};
-        final String[] posInst = new String[]{"?4", "!4"};
-
+    public static int getNewPosition(int pos, boolean correct, int[] specialPos, String[] posInst) {
         if (!correct) pos -= 1;  // Go back by 1 if wrong answer
 
         // Check whether current position is in the special positions array
