@@ -7,6 +7,8 @@ import java.util.Scanner;
  * @version 7.0
  * A board game with traps and secret passages
  */
+
+
 public class SecretTrapsAndPassages {
     static class Question {
         String msg;
