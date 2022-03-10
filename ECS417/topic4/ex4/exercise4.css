@@ -1,0 +1,46 @@
+html {
+    padding-left: 10%;
+    padding-right: 10%;
+    font-weight: 500;
+}
+
+span#title {
+    background-color: green;
+    color: white;
+    text-align: center;
+    width: 90%;
+    position: absolute;
+    top: -1.5%;
+}
+
+form {
+    top: 3%;
+    position: relative;
+    background-color: #EAFEDB;
+    border: 2px solid gray;
+}
+
+input#bt {
+    background-color: green;
+    color: white;
+    margin: 1%;
+    padding-left: 3%;
+    padding-right: 3%;
+    border-radius: 5px;
+}
+
+section {
+    border: 2px solid green;
+    margin: 1%;
+    padding: 1%;
+}
+
+section#bottom {
+    background-color: white;
+    border: 0;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+}

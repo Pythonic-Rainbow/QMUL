@@ -1,0 +1,16 @@
+hgroup, nav, li, article, a {
+    margin: 0
+}
+
+h1, h2, h3, ul, footer {
+    padding: 0
+}
+
+html, body, div, span {
+    font-size: 100%;
+    display: inline;
+}
+
+figure, figcaption {
+    font: inherit;
+}

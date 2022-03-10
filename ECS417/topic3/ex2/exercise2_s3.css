@@ -1,0 +1,5 @@
+@media print {
+    ul a {
+        color: orange;
+    }
+}

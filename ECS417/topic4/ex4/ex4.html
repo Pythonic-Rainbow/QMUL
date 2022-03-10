@@ -1,0 +1,60 @@
+<html>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="exercise4.css">
+
+    <form action="http://webprojects.eecs.qmul.ac.uk/un300/week4/week4_process.php" method="post">
+        <div><span id="title">Shirt Order Form</span></div>
+        <section>
+            <label for="size">Shirt Size</label><br>
+                <select name="size" id="size">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select><br>
+            <label for="sleeves">Sleeves</label><br>
+                <input type="radio" name="sleeves" value="short" checked="short">
+                <label for="short">Short</label><br>
+                <input type="radio" name="sleeves" value="long">
+                <label for="long">Long</label><br>
+            <label for="color">Choose shirt colour</label><br>
+                <input type="color" name="color" id="color"><br>
+            <label for="quantity">Quantity</label><br>
+                <input type="number" name="quantity" id="quantity" min="1" max="10"><br>
+            <label for="date">Date requested</label><br>
+                <input type="date" name="date" id="date"><br>
+        </section>
+        <section>
+            <label for="name">Name</label><br>
+                <input type="text" name="name" id="name"><br>
+            <label for="email">Email address</label><br>
+                <input type="email" name="email" id="email"><br>
+            <label for="tel">Telephone number</label><br>
+                <input type="tel" name="tel" id="tel" pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                <span>Example: 44-207-882-1234</span><br>
+        </section>
+        <section>
+            <label for="address">Address</label><br>
+                <input type="text" name="address" id="address"><br>
+            <label for="city">City</label><br>
+                <datalist id="city-list">
+                    <option value="London"></option>
+                    <option value="Chelmsford"></option>
+                    <option value="Manchester"></option>
+                    <option value="Liverpool"></option>
+                </datalist>
+                <input list="city-list"><br>
+            <label for="Postcode">Postcode</label><br>
+                <input type="text"><br>
+        </section>
+        <section id="bottom">
+            <span>Please keep me informed about future shirt designs</span>
+            <input type="checkbox" name="future" id="future"><br>
+            <div>
+                <input type="submit" id='bt' value="Submit">
+                <input type="reset" id='bt' value="Clear Form">
+            </div>
+        </section>
+    </form>
+</html>

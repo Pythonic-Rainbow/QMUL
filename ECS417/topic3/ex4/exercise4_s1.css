@@ -1,0 +1,85 @@
+/*
+    Main
+*/
+html {
+    background-color: wheat;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+}
+
+body {  
+    background-color: rgb(255, 208, 177);
+}
+
+/*
+    Headers, footers and articles
+*/
+hgroup, footer {
+    background-color: navy;
+    color: white;
+}
+
+h1 {
+    font-size: x-large;
+}
+
+h2 {
+    font-size: large;
+}
+
+h3 {
+    font-size: xx-large;
+    padding-bottom: 2%;
+}
+
+article {
+    font-size: 100%;
+}
+
+article h3 {
+    color: blue;
+}
+
+article#myself {
+    color: gray;
+}
+
+
+/*
+    Categories
+*/
+nav {
+    background-color: aquamarine;
+}
+
+nav li, ul {
+    display: inline-block;
+}
+
+ul li {
+    display: flex;
+}
+
+a {
+    color: red;
+}
+
+li a{
+    color: maroon;
+}
+
+/*
+    Graphics
+*/
+figcaption {
+    font-style: italic;
+}
+
+figure {
+    border: 60%;
+    border-color: aqua;
+}
+img {
+    margin: 0;
+}

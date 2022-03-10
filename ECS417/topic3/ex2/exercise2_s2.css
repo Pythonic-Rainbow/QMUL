@@ -1,0 +1,6 @@
+@import "exercise2_s3.css";
+
+p, ul {
+    background-color: green;
+    font-size: 24pt;
+}
