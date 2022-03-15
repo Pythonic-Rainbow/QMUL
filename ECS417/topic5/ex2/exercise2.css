@@ -1,0 +1,76 @@
+/*
+    nav
+*/
+nav {
+    background-color: aqua;
+    padding: 2%
+}
+nav b {
+    float: left;
+    font-size: larger;
+}
+nav a {
+    padding: 2% 5%;
+}
+
+/*
+    aside
+*/
+
+aside#left {
+    float: left;
+}
+
+aside#right {
+    float: right;
+}
+
+aside {
+    width: 20%;
+}
+
+aside div {
+    padding: 5%;
+    margin: 5%;
+    background-color: rgb(203, 231, 255);
+    float:inline-start;
+}
+
+aside h3 {
+    margin: 1%;
+    background-color: aqua;
+    padding: 5%;
+}
+
+/*
+    main
+*/
+main {
+  position: absolute;
+  margin: 0 30%;
+  width: 60%;
+}
+
+figure {
+    float: right;
+}
+
+figure img {
+    width: 20%;
+    height: 20%;
+}
+
+/*
+    div
+*/
+
+div#interest {
+    background-color: rgb(205, 253, 209);
+}
+
+/*
+    Misc
+*/
+ul {
+    list-style-type: none;
+}

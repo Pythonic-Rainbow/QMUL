@@ -1,0 +1,26 @@
+nav {
+    color: white;
+}
+
+nav b {
+    padding-right: 1%;
+}
+
+.cell {
+    background-color: rgb(203, 231, 255);
+    margin: 2%;
+    padding: 5%;
+}
+
+figure img {
+    width: 50%;
+}
+
+.h5bg {
+    background-color: aqua;
+    padding: 2%;
+}
+
+div#main {
+    margin: 0
+}
