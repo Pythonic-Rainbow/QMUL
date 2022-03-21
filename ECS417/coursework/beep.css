@@ -1,0 +1,68 @@
+div {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@keyframes main-bg {
+    0%, 100% {
+        background-image: linear-gradient(to right, rgb(56, 11, 107) , rgb(41, 122, 204));
+    } 50% {
+        background-image: url(https://pbs.twimg.com/media/ECKPIqEXkAEgKzm?format=jpg&name=large);
+    }
+}
+
+div#main {
+    animation: 3s main-bg 0.1s infinite;
+}
+
+@keyframes bio-bg {
+    0%, 100% {
+        background-image: linear-gradient(to right, rgb(50, 93, 173) , rgb(210, 20, 228));
+    } 50% {
+        background-image: url(https://pbs.twimg.com/media/ECKVeTOWsAE5_Jb?format=jpg&name=large);
+    }
+}
+
+div#bio {
+    animation: 3s bio-bg 0.1s infinite;
+}
+
+
+@keyframes proj-bg {
+    0%, 100% {
+        background-image: linear-gradient(to right, rgb(236, 89, 255) , rgb(186, 255, 107));
+        color: black;
+    } 50% {
+        background-image: url(https://64.media.tumblr.com/1088ea4cd607d98fece895610ed17394/tumblr_oii005uUdW1u85r2qo8_500.png);
+        color: white;
+    }
+}
+
+div#proj {
+    animation: 3s proj-bg 0.1s infinite;
+}
+
+@keyframes proj-a {
+    0%, 100% {
+        background-image: linear-gradient(to right, #162b57, #1bacbf);
+    } 50% {
+        background-image: linear-gradient(to right, #b5ccff, #27c7a4);
+    }
+}
+
+div#proj a {
+    animation: 3s proj-a 0.1s infinite;
+}
+
+
+@keyframes edu-bg {
+    0%, 100% {
+        background-image: linear-gradient(to right, rgb(122, 157, 255) , rgb(250, 129, 16));
+    } 50% {
+        background-image: url(https://i.imgur.com/CcDPMrt.jpg);
+    }
+}
+
+div#edu {
+    animation: 3s edu-bg 0.1s infinite;
+}

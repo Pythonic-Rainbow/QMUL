@@ -1,0 +1,144 @@
+div#main {
+    background-image: linear-gradient(to right, rgb(56, 11, 107) , rgb(41, 122, 204));
+    padding: 15% 10% 5%;
+}
+
+div#main-border {
+    border: 1px solid;
+}
+
+div#bio {
+    background-image: linear-gradient(to right, rgb(50, 93, 173) , rgb(210, 20, 228));
+}
+
+div#bio-border {
+    border-top: 5px solid;
+    border-left: 5px solid;
+    border-image: url("border.png") 2 round;
+    border-image-repeat: stretch;
+    width: 50%;
+    height: 75%;
+    position: absolute;
+}
+
+div#bio-main {
+    position: absolute;
+    width: 80%;
+    height: 90%;
+    padding-right: 0;
+}
+
+div#proj {
+    background-image: linear-gradient(to right, rgb(236, 89, 255) , rgb(186, 255, 107));
+    border: 5px solid;
+    border-image: url("border.png") 2 round;
+    border-image-repeat: stretch;
+    color: black;
+}
+
+div#edu {
+    background-image: linear-gradient(to right, rgb(122, 157, 255) , rgb(250, 129, 16));
+}
+
+div#edu-outer {
+    padding-top: 2%;
+    border-top: 5px solid;
+    border-image: url("border.png") 2 round;
+    border-image-repeat: stretch;
+    height: fit-content;
+}
+
+div#edu-inner {
+    border-top: 5px solid black;
+    padding-bottom: 0;
+    height: fit-content;
+}
+
+h1#name {
+    margin: 0 15%;
+    border-bottom: 2px solid;
+}
+
+img {
+    width: 40%;
+}
+
+figure {
+    flex: 0 0 25%;
+}
+
+article#bio {
+    border-right: 3px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to bottom, red, black);
+}
+
+article#half {
+    flex: 0 0 50%;
+}
+
+a {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+a:hover {
+    animation-fill-mode: forwards;
+}
+
+div#proj a {
+    background-image: linear-gradient(to right, #162b57, #1bacbf);
+}
+
+@keyframes proj-border {
+    to {
+        border: 1px solid;
+        border-image: url("border.png") 2 round;
+        border-image-repeat: stretch;
+        width: 50%;
+        height: 75%;
+    }
+}
+
+div#proj a:hover {
+    animation-name: proj-border;
+}
+
+div#main a {
+    background-image: linear-gradient(to bottom, grey, white);
+}
+
+@keyframes main-a {
+    to {
+        background-image: linear-gradient(to top, grey, white);
+    }
+}
+
+div#main a:hover {
+    animation-name: main-a;
+}
+
+/*
+    list
+*/
+ul#edu h3 {
+    padding-right: 10%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to left, #1fa9ff, #fffaee);
+}
+
+ul#edu li {
+    display: flex;
+    align-items: baseline;
+    list-style-type: none;
+}
+
+/*
+    nav
+*/
+nav hgroup {
+    width: 50%;
+}

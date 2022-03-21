@@ -1,0 +1,105 @@
+<html>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="beep.css">
+
+    <div id="main">
+        <div id="main-border">
+            <h1 class="text-center" id="name">Howard Wong</h1>
+            <nav>
+                <hgroup>
+                    <h2><a href="#bio">About</a></h2>
+                    <h2><a href="#proj">Projects</a></h2>
+                </hgroup>
+                <hgroup>
+                    <h2><a href="#edu">Education</a></h2>
+                    <h2><a href="blog.html">Blog</a></h2>
+                </hgroup>         
+            </nav>
+        </div>
+    </div>
+
+    <div id="bio">
+        <div id="bio-border"></div>
+        <div id="bio-main">
+            <h1>About me</h1>
+            <section>
+                <figure>
+                    <img src='https://lh3.googleusercontent.com/a-/AOh14GhrKlVfdPONRdskAePA7jjXJmsnrx7kcxop6E7DHg=s360-p-rw-no'>
+                    <figcaption>I like this GIF.</figcaption>
+                </figure>
+                <article id="bio">
+                    <p>
+                        Got interested in computers because my first laptop couldn't handle games well. 
+                        I started researching factors impacting a system's performance and ultimately 
+                        built my own computer at 17.
+                    </p>
+                    <p>
+                        I taught myself Python because I wanted to make a bot on Discord. However, with no prior coding experience, 
+                        the code quickly became a mess. That didn't stop me because I was fascinated at how programs would behave 
+                        when we write code, and so I would search on Google hundreds of time everyday. I've had rewritten the bot 
+                        multiple times, but with each rewrite I felt like I've learnt a lot. I eventually learnt multiple programming 
+                        languages with the help of Google and many other online resources.
+                    </p>
+                </article>
+            </section>
+        </div>
+    </div>
+
+    <div id="proj">
+        <h2 class="text-center">Personal projects & skills</h2>
+        <section>
+            <article id="half">
+                <p>
+                    <a href="https://github.com/TCLRainbow/DimBot">DimBot</a>
+                    : A Discord bot, highly concurrent. Base64 encode/decode, automatic RSS/YouTube feeds relay, auto chat moderation, stream music from YouTube, 
+                    remotely starts a DigitalOcean cloud instance and more.<br>
+                    <a href="https://aws.amazon.com/ec2/instance-types/t4/">Runs on a self-managed AWS EC2 cloud instance.</a>
+                </p>
+                <p>
+                    <a href="https://github.com/TCLRainbow/Lokeon">Lokeon</a>
+                    : A plugin written in Java for Minecraft Spigot servers. Sends HTTP requests to DimBot when certain in-game 
+                    events are fired. Also contains a timer that shuts down the Linux server its running on if there are no players 
+                    in the server for a defined duration.<br>
+                    <a href="https://www.digitalocean.com/products/droplets">Runs on a self-managed DigitalOcean Droplet cloud instance.</a>
+                </p>
+                <p>
+                    <a href="https://github.com/TCLRainbow/BigBangMods-Discord">BigBangMods-Discord</a>
+                    : Gradle-based mod for Minecraft Forge/Fabric written in Java. Allows players to display their currently playing game 
+                    as my modpack. Uses jar shadowing to shade dependencies into one fat jar.<br>
+                    <a href="https://www.curseforge.com/minecraft/mc-mods/bigbangmods-discord">Available on CurseForge.</a>
+                </p>
+            </article>
+            <article>
+                <p>
+                    <a href="https://github.com/TCLRainbow/RbxTBRnd">RbxTBRnd</a>
+                    : A simple website that randomises towers and maps for a tower defense game.<br>
+                    <a href="https://tclrainbow.github.io/RbxTBRnd/">Hosted on GitHub Pages.</a>
+                </p>
+                <p>
+                    <a href="https://github.com/TCLRainbow/MarioDSMinigames">Luigi Poker</a>
+                    : An attempt to recreate the old 'Luigi Poker' minigame found in 2 Mario games for the Nintendo DS. 
+                    Uses Python aiohttp as a HTTPS+WebSocket server. Contains a SSL certificate authorised by Let's Encrypt.<br>
+                    <a href="https://chingdim.mooo.com/picpoker.html">Runs on DimBot's AWS EC2 cloud instance with a custom subdomain via afraid.org</a>
+                </p>
+                <p>
+                    <a href="https://github.com/TCLRainbow/PyCurseForge">PyCurseForge</a>
+                    : A Python wrapper for the unofficial CurseForge endpoint.
+                </p>
+            </article>
+        </section>
+    </div>
+
+    <div id="edu">
+        <div id="edu-outer">
+            <div id="edu-inner">
+                <h2 class="text-center">Education</h2>
+            </div>
+        </div>
+        <ul id="edu">
+            <li><h3>2021-2024</h3>BSc Computer Science, Queen Mary University of London</li>
+            <li><h3>2019-2021</h3>A Level in the UK</li>
+            <li><h3>2014-2019</h3>HKDSE (dropped out)</li>
+        </ul>
+    </div>
+</html>

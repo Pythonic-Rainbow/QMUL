@@ -1,0 +1,54 @@
+@import url('http://fonts.cdnfonts.com/css/tenorite');
+
+body {
+    margin: 0;
+    color: white;
+    font-family: 'Tenorite', sans-serif;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.test {
+    background-color: black;
+}
+
+.text-center {
+    text-align: center;
+}
+
+div {
+    width: 100%;
+    height: 100%;
+    padding: 5% 10%;
+    box-sizing: border-box;
+}
+
+section, nav {
+    display: flex;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+h1 {
+    font-size: 500%;
+}
+
+h2 {
+    font-size: 350%;
+}
+
+h3 {
+    font-size: 200%;
+}
+
+p {
+    font-size: clamp(1.5vw, 1.5vh, 2vw);
+}

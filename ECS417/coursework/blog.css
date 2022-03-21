@@ -1,0 +1,51 @@
+div#login {
+    background-image: linear-gradient(to right, rgb(155, 255, 24), rgb(255, 238, 80));
+}
+
+div#login-txt {
+    padding-top: 15%;
+}
+
+div#login-form {
+    padding-top: 10%;
+}
+
+div#add {
+    background-image: url(https://pbs.twimg.com/media/ECKPIqEXsAA-bhn?format=jpg&name=large);
+    background-size: auto;
+}
+
+input {
+    width: 100%;
+    height: 7vh; 
+}
+
+div#login-form input {
+    margin-bottom: 25%;
+}
+
+input#submit {
+    width: 50%;
+    height: 5vh;
+    background-color: royalblue;
+    color: white;
+}
+
+div#add input {
+    margin-bottom: 5%;
+}
+
+div#add input#submit {
+    width: 10%;
+    margin: 0 5%;
+}
+
+input#body {
+    height: 50vh;
+}
+
+p {
+    font-size: 200%;
+    width: 80%;
+    margin: 0;
+}
