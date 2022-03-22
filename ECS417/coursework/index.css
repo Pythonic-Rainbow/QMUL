@@ -58,9 +58,9 @@ div#bio-border, div#edu-outer, div#proj {
 }
 
 /*
-    nav
+    flex
 */
-nav {
+section, nav {
     flex-wrap: wrap;
 }
 

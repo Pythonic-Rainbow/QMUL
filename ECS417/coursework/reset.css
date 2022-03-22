@@ -31,7 +31,6 @@ div {
 
 section, nav {
     display: flex;
-    flex-wrap: wrap;
 }
 
 h1, h2 {
