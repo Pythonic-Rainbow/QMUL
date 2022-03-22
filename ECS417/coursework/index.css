@@ -66,13 +66,8 @@ nav {
 }
 
 /*
-    Image
+    Fig
 */
-
-img {
-    width: 40%;
-}
-
 figure {
     flex: 0 0 25%;
 }
