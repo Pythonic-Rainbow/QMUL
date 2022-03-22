@@ -12,7 +12,7 @@ div {
 }
 
 div#main {
-    animation: 3s main-bg 0.1s infinite;
+    animation: 20s main-bg 0.1s infinite;
 }
 
 @keyframes bio-bg {
@@ -24,7 +24,7 @@ div#main {
 }
 
 div#bio {
-    animation: 3s bio-bg 0.1s infinite;
+    animation: 20s bio-bg 0.1s infinite;
 }
 
 
@@ -39,7 +39,7 @@ div#bio {
 }
 
 div#proj {
-    animation: 3s proj-bg 0.1s infinite;
+    animation: 20s proj-bg 0.1s infinite;
 }
 
 @keyframes proj-a {
@@ -51,7 +51,7 @@ div#proj {
 }
 
 div#proj a {
-    animation: 3s proj-a 0.1s infinite;
+    animation: 20s proj-a 0.1s infinite;
 }
 
 
@@ -64,5 +64,5 @@ div#proj a {
 }
 
 div#edu {
-    animation: 3s edu-bg 0.1s infinite;
+    animation: 20s edu-bg 0.1s infinite;
 }

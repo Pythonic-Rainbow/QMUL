@@ -1,3 +1,7 @@
+/*
+    div
+*/
+
 div#main {
     background-image: linear-gradient(to right, rgb(56, 11, 107) , rgb(41, 122, 204));
     padding: 15% 10% 5%;
@@ -54,10 +58,16 @@ div#edu-inner {
     height: fit-content;
 }
 
-h1#name {
-    margin: 0 15%;
-    border-bottom: 2px solid;
+/*
+    nav
+*/
+nav {
+    flex-wrap: wrap;
 }
+
+/*
+    Image
+*/
 
 img {
     width: 40%;
@@ -67,15 +77,27 @@ figure {
     flex: 0 0 25%;
 }
 
-article#bio {
+/*
+    Article
+*/
+article {
+    padding: 0 2%;
+}
+
+div#bio article {
+    width: max(600px, 60%);
     border-right: 3px solid;
     border-image-slice: 1;
     border-image-source: linear-gradient(to bottom, red, black);
 }
 
-article#half {
-    flex: 0 0 50%;
+div#proj article {
+    width: max(45%, 35vh);
 }
+
+/*
+    Link
+*/
 
 a {
     background-clip: text;
@@ -122,23 +144,41 @@ div#main a:hover {
 /*
     list
 */
-ul#edu h3 {
+ul#edu li h3 {
     padding-right: 10%;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     background-image: linear-gradient(to left, #1fa9ff, #fffaee);
+    font-size: max(200%, 5vh);
+    width: max(15%, 30vh);
 }
 
 ul#edu li {
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
     list-style-type: none;
+    font-size: max(120%, 2.5vh);
 }
 
 /*
-    nav
+    Header
 */
-nav hgroup {
-    width: 50%;
+div#main h2 {
+    font-size: max(3vw, 4.5vh);
+    width: max(400px, 50%);
+    margin: 2% 0;
+}
+
+h1#name {
+    margin: 0 15%;
+    border-bottom: 2px solid;
+}
+
+/*
+    p
+*/
+div#proj p {
+    font-size: max(1.4vw, 1.6vh);
 }
