@@ -18,8 +18,6 @@ div#bio {
 div#bio-border {
     border-top: 5px solid;
     border-left: 5px solid;
-    border-image: url("border.png") 2 round;
-    border-image-repeat: stretch;
     width: 50%;
     height: 75%;
     position: absolute;
@@ -35,8 +33,6 @@ div#bio-main {
 div#proj {
     background-image: linear-gradient(to right, rgb(236, 89, 255) , rgb(186, 255, 107));
     border: 5px solid;
-    border-image: url("border.png") 2 round;
-    border-image-repeat: stretch;
     color: black;
 }
 
@@ -47,8 +43,6 @@ div#edu {
 div#edu-outer {
     padding-top: 2%;
     border-top: 5px solid;
-    border-image: url("border.png") 2 round;
-    border-image-repeat: stretch;
     height: fit-content;
 }
 
@@ -58,11 +52,36 @@ div#edu-inner {
     height: fit-content;
 }
 
+div#bio-border, div#edu-outer, div#proj {
+    border-image: url("img/border.png") 2 round;
+    border-image-repeat: stretch;
+}
+
 /*
     nav
 */
 nav {
     flex-wrap: wrap;
+}
+
+/*
+    aside
+*/
+aside {
+    background-color: rgba(255, 255, 255, 0.05);
+    filter: blur(10%);
+    width: 5%;
+    height: 100%;
+    left: 95%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    font-size: 100%;
+}
+
+aside img {
+    width: 100%;
+    margin: 10% 0;
 }
 
 /*
@@ -93,47 +112,35 @@ div#proj article {
 /*
     Link
 */
-
-a {
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-a:hover {
-    animation-fill-mode: forwards;
+div#main a {
+    margin-right: 30%;
 }
 
 div#proj a {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     background-image: linear-gradient(to right, #162b57, #1bacbf);
+}
+
+aside a {
+    margin: 5% 0;
+    color: white;
+    text-align: center;
+    text-decoration: none;
 }
 
 @keyframes proj-border {
     to {
         border: 1px solid;
-        border-image: url("border.png") 2 round;
+        border-image: url("img/border.png") 2 round;
         border-image-repeat: stretch;
-        width: 50%;
-        height: 75%;
     }
 }
 
-div#proj a:hover {
+aside a:hover {
     animation-name: proj-border;
-}
-
-div#main a {
-    background-image: linear-gradient(to bottom, grey, white);
-}
-
-@keyframes main-a {
-    to {
-        background-image: linear-gradient(to top, grey, white);
-    }
-}
-
-div#main a:hover {
-    animation-name: main-a;
+    animation-fill-mode: forwards;
 }
 
 /*
@@ -160,12 +167,6 @@ ul#edu li {
 /*
     Header
 */
-div#main h2 {
-    font-size: max(3vw, 4.5vh);
-    width: max(400px, 50%);
-    margin: 2% 0;
-}
-
 h1#name {
     margin: 0 15%;
     border-bottom: 2px solid;
