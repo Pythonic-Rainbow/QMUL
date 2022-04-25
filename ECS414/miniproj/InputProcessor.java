@@ -68,7 +68,11 @@ public class InputProcessor {
     }
 
     static void process() {
-        for (Character input : new ArrayList<>(inputs)) actions.get(input).run();
+        try {
+            for (char input : new ArrayList<>(inputs))
+                actions.get(input).run();
+        } catch (Exception ignored) {}
+
         if (removeE) {
             inputs.remove('e');
             removeE = false;

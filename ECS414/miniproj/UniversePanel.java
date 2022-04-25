@@ -18,7 +18,7 @@ public class UniversePanel extends JPanel {
         super.paintComponent(g);
 
         ArrayList<Enemy> enemies = new ArrayList<>();
-        for (Enemy e : EMExorcist.enemies) {
+        for (Enemy e : new ArrayList<>(EMExorcist.enemies)) {
             if (e.isElectric() == viewE)
                 enemies.add(e);
         }
@@ -39,7 +39,7 @@ public class UniversePanel extends JPanel {
             e.draw(g);
         }
         g.setColor(Color.yellow);
-        for (Spawner s : EMExorcist.spawners) {
+        for (Spawner s : new ArrayList<>(EMExorcist.spawners)) {
             s.draw(g);
         }
         g.setColor(Color.green);
