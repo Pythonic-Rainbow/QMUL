@@ -52,3 +52,42 @@ h3 {
 p {
     font-size: max(1.5vw, 2vh);
 }
+
+/*
+    aside
+*/
+aside {
+    background-color: rgba(255, 255, 255, 0.05);
+    width: 5%;
+    height: 100%;
+    left: 95%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    font-size: 100%;
+}
+
+aside img {
+    width: 100%;
+    margin: 10% 0;
+}
+
+aside a {
+    margin: 5% 0;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+@keyframes proj-border {
+    to {
+        border: 1px solid;
+        border-image: url("img/border.png") 2 round;
+        border-image-repeat: stretch;
+    }
+}
+
+aside a:hover {
+    animation-name: proj-border;
+    animation-fill-mode: forwards;
+}

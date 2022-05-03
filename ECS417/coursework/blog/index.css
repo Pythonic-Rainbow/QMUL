@@ -1,0 +1,11 @@
+html {
+    background-image: linear-gradient(to right, black, #494949);
+}
+
+article {
+    padding: 2% 7.5%;
+}
+
+span {
+    font-size: 300%;
+}
