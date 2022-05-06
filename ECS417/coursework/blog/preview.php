@@ -11,7 +11,7 @@
 <aside>
     <a href="addPost.php">Back</a>
     <!-- Forwards data to addPost.php so the post will actually be added. -->
-    <a href=<?php printf('addPost.php?title=%s&body=%s', $_GET['title'], $_GET['body'])?>>Upload</a>
+    <a href=<?php echo 'addPost.php?' . $_SERVER['QUERY_STRING']?>>Upload</a>
 </aside>
 
 <?php
