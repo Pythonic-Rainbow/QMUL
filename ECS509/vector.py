@@ -1,4 +1,5 @@
 import math
+from fractions import Fraction
 
 
 class V:
@@ -13,10 +14,14 @@ class V:
         return self.mags[item]
 
     def __add__(self, other):
-        return V(*(m + other[i] for i, m in enumerate(self.mags)))
+        if len(self.mags) == len(other.mags):
+            return V(*(m + other[i] for i, m in enumerate(self.mags)))
+        raise Exception('Different vector dimensions')
 
     def __sub__(self, other):
-        return V(*(m - other[i] for i, m in enumerate(self.mags)))
+        if len(self.mags) == len(other.mags):
+            return V(*(m - other[i] for i, m in enumerate(self.mags)))
+        raise Exception('Different vector dimensions')
 
     def __mul__(self, other):
         return V(*(m * other for m in self.mags))  # Scalar mult
@@ -38,4 +43,11 @@ class V:
 
     def to_unit_v(self):
         return self/self.mag()
+
+    def fraction(self):
+        v = list(self.mags)
+        for i, m in enumerate(v):
+            if type(m) == float:
+                v[i] = Fraction(m).limit_denominator()
+        return V(*v)
 

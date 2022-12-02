@@ -1,5 +1,9 @@
 import itertools
+from decimal import Decimal
 from fractions import Fraction
+from warnings import warn
+
+from unicodedata import decimal
 
 
 class M:
@@ -226,7 +230,7 @@ class M:
             det = self.det()
             if not det:
                 raise Exception('Det = 0, this matrix is not invertible!')
-            if self.row == 0:  # 2
+            if self.row == 2:
                 n = M([self.rows[1][1], -self.rows[0][1]], [-self.rows[1][0], self.rows[0][0]])
                 n *= 1 / det
                 return n
@@ -239,7 +243,7 @@ class M:
                 c = 1 / r[i]
                 n.mul_row(c, i, n_step)
                 i_m.mul_row(c, i, steps)
-            for j in itertools.chain(range(i), range(i+1, n.row)):
+            for j in itertools.chain(range(i), range(i + 1, n.row)):
                 t = n.rows[j][i]
                 if t:
                     c = -t
@@ -277,20 +281,21 @@ class M:
         return False
 
     def mul_row(self, c, i, steps=0):
+        c = Fraction(c).limit_denominator()
+        if steps:
+            print(f'{c}R{i + 1}')
         if not c:
             raise Exception("Cannot multiply 0 to row")
-        if steps:
-            print(f'{Fraction(c).limit_denominator()}R{i + 1}')
         for j in range(self.column):
             self.rows[i][j] *= c
         if steps == 2:
             print(self)
 
     def mul_add_to(self, j, c, i, steps=0):
-        if not c:
-            raise Exception("Cannot multiply 0 to row")
         if steps:
             print(f'R{j + 1} {Fraction(c).limit_denominator()}R{i + 1}')
+        if not c:
+            raise Exception("Cannot multiply 0 to row")
         for k in range(self.column):
             self.rows[j][k] += self.rows[i][k] * c
         if steps == 2:
@@ -325,14 +330,6 @@ class E(M):
             s += f"{' '.join(str(e) for e in self.rows[i])}| {self.constants[i]}\n"
         return s
 
-    @staticmethod
-    def __no_solution__():
-        raise Exception("This equation system has no solutions!")
-
-    @staticmethod
-    def __infinite_solution():
-        print('This equation system has infinite solutions')
-
     def __cst_col__(self):
         return M(*([c] for c in self.constants))
 
@@ -343,32 +340,30 @@ class E(M):
         return True
 
     def mul_row(self, c, i, steps=0):
-        super().mul_row(c, i, steps)
+        super().mul_row(c, i, 1 if steps else 0)
         self.constants[i] *= c
+        if steps == 2:
+            print(self)
 
     def mul_add_to(self, j, c, i, steps=0):
-        super().mul_add_to(j, c, i, steps)
+        super().mul_add_to(j, c, i, 1 if steps else 0)
         self.constants[j] += self.constants[i] * c
+        if steps == 2:
+            print(self)
 
     def swap(self, i, j, steps=0):
-        super().swap(i, j, steps)
+        super().swap(i, j, 1 if steps else 0)
         temp = self.constants[i]
         self.constants[i] = self.constants[j]
         self.constants[j] = temp
+        if steps == 2:
+            print(self)
 
     def solve(self):
-        if self.is_sq_m():
-            if self.det():
-                return self.inverse() * self.__cst_col__()
-            r = self.rows[0][0] / self.rows[1][0]
-            if not self.constants[1] or r != self.constants[0] / self.constants[1]:
-                self.__no_solution__()
-            for i in range(1, self.column):
-                if not self.rows[1][i] or r != self.rows[0][i] / self.rows[1][i]:
-                    self.__no_solution__()
-            self.__infinite_solution()
-            return
-        return self.gauss()
+        try:
+            return self.inverse() * self.__cst_col__()
+        except:  # self is not invertible
+            return self.gauss()
 
     def gauss(self, steps=0):
         for i in range(self.row):
@@ -396,8 +391,41 @@ class E(M):
                     self.swap(x, i, steps)
                     break
             for i in range(x, self.row):
-                mul = -self.rows[i][x - 1]
-                self.mul_add_to(i, mul, x - 1, steps)
+                if self.rows[i][x - 1]:
+                    mul = -self.rows[i][x - 1]
+                    self.mul_add_to(i, mul, x - 1, steps)
+
+            def __ratio__(a, b):
+                if a and b:
+                    return a / b
+                elif a:
+                    return
+                return 1
+
+            # Check if infinite solutions
+            for i in range(self.row - 1):
+                for j in range(i + 1, self.row):
+                    r1 = __ratio__(self.constants[i], self.constants[j])
+                    infinite = True
+                    for c in range(self.column):
+                        r2 = __ratio__(self.rows[i][c], self.rows[j][c])
+                        if r1 != r2:
+                            infinite = False
+                            break
+                    if infinite:
+                        warn(f'All ratios of Row{i}/Row{j} are the same. '
+                             'This system has infinite solutions, solve by substitution.')
+
+            # Check if no solutions
+            all_zero = True
+            for e in self.rows[-1]:
+                if e:
+                    all_zero = False
+                    break
+            if all_zero:
+                if self.constants[-1]:
+                    raise Exception('This system has no solutions')
+                raise Exception('Infinite solution')
 
             if self.rows[x][x] != 1:
                 mul = 1 / self.rows[x][x]
