@@ -1,0 +1,13 @@
+Relational Schema Estate Agent:
+
+agency (Id, Name, PhoneNumber)
+office (Id , AgencyId, Area, District , Sector, Unit, PhoneNumber)
+property (Id , Area, District , Sector, Unit, City , Price, Type, NumBedrooms, Description)
+        --Type: house or flat,  --Description: a text attribute
+customer (Id, Name, PhoneNumber)
+forSale (PropertyId, OfficeId)
+forRent (PropertyId, OfficeId)
+sold (PropertyId, OfficeId , CustomerId)
+    -- Postcode is a composite attribute
+    -- postcode = (Area, District , Sector, Unit)\newline
+    -- example: E1 4NS $\implies$ Area='E', District ='1', Sector='4', Unit='NS'

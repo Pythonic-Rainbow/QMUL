@@ -228,6 +228,7 @@ class M:
     def inverse(self, steps=0, show_step_on_n=False):
         if self.row <= 3:
             det = self.det()
+            print(f'det: {det}')
             if not det:
                 raise Exception('Det = 0, this matrix is not invertible!')
             if self.row == 2:
@@ -359,11 +360,12 @@ class E(M):
         if steps == 2:
             print(self)
 
-    def solve(self):
+    def solve(self, steps=2):
         try:
             return self.inverse() * self.__cst_col__()
         except:  # self is not invertible
-            return self.gauss()
+            print('This matrix is not invertible, using gauss')
+            return self.gauss(steps)
 
     def gauss(self, steps=0):
         for i in range(self.row):

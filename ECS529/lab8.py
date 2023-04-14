@@ -59,6 +59,7 @@ class Heap:
         
         # if element in position pos is larger than its parent, swap them
         while pos > 0 and self.inList.get(pos) > self.inList.get((pos-1)//2): 
+            print(d, self.inList.get(pos), self.inList.get((pos-1)//2))
             self._swap(pos,(pos-1)//2)
             pos = (pos-1)//2              
 
@@ -168,11 +169,5 @@ class Heap:
 
 
 h = Heap()
-h.addAll([4,42,0,-4,124,0,34,0,43])
+h.addAll(['FLINT', 'DARIA', 'REIVA', 'MILENA', 'DARIN', 'MYIAH', 'KHYRO', 'ZOE'])
 print(h)
-print('max:', h.max())
-print('First occurance of 34 is at', h._search(34))
-h._remove(2)
-print(h)
-print(h.removeVal(42), h)
-print('Sorted:', h.toSortedArray())
