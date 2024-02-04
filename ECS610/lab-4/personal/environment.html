@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- ECS610U Miles Hansard -->
+
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html;charset=utf-8' >
+<link rel='icon' type='image/png' href='../shared/cg.png'>
+<title>ECS610U Computer graphics</title>
+
+<style type = 'text/css'>
+    h1, div {
+        font-family: 'Roboto', sans-serif;
+    }
+    tt {
+        font-family: 'Courier New';
+        font-size: 20px;
+    }
+    body {
+        background-color: black;
+    }
+</style>
+<script type='text/javascript' src='../shared/webgl-obj-loader.js'></script>
+<script type='text/javascript' src='../shared/graphics.js'></script>
+<script type='text/javascript' src='./environment.js'></script>
+</head>
+
+<body>
+
+<div>
+    <canvas id='gl-canvas' width='850' height='850'>
+    Error: HTML5 canvas not supported
+    </canvas><br>
+</div> <br><br>
+
+<img id ='cubemap_img0' src='../shared/models/chessboard/right.png' hidden></img>
+<img id ='cubemap_img1' src='../shared/models/chessboard/left.png' hidden></img>
+<img id ='cubemap_img2' src='../shared/models/chessboard/over.png' hidden></img>
+<img id ='cubemap_img3' src='../shared/models/chessboard/under.png' hidden></img>
+<img id ='cubemap_img4' src='../shared/models/chessboard/front.png' hidden></img>
+<img id ='cubemap_img5' src='../shared/models/chessboard/back.png' hidden></img>
+
+<img id ='texcube_img0' src='./galaxy/right.png' hidden></img>
+<img id ='texcube_img1' src='./galaxy/left.png' hidden></img>
+<img id ='texcube_img2' src='./galaxy/over.png' hidden></img>
+<img id ='texcube_img3' src='./galaxy/under.png' hidden></img>
+<img id ='texcube_img4' src='./galaxy/front.png' hidden></img>
+<img id ='texcube_img5' src='./galaxy/back.png' hidden></img>
+
+<img id ='debug0' src='./debug/Left.png' hidden></img>
+<img id ='debug1' src='./debug/Right.png' hidden></img>
+<img id ='debug2' src='./debug/Top.png' hidden></img>
+<img id ='debug3' src='./debug/Bottom.png' hidden></img>
+<img id ='debug4' src='./debug/Back.png' hidden></img>
+<img id ='debug5' src='./debug/Front.png' hidden></img>
+
+</body>
+</html>
+
